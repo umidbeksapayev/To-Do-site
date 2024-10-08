@@ -1,0 +1,105 @@
+html{
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+body {
+  background-color: rgb(134, 232, 232);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.conteiner{
+  background-color:rgb(73, 196, 230); 
+  margin: 100px 380px;
+  width: 770px;
+
+}
+
+
+.conteiner h1{
+  color: white;
+  padding-top: 90px;
+
+}
+
+
+.in {
+  width: 70%;
+  padding: 0.7rem 0;
+  border-radius: 5px;
+  border: 1px solid white;  
+  margin-bottom: 2rem;
+}
+
+.btn,.btns button {
+  padding: 0.7rem 1rem;
+  color: white;
+  margin-bottom: 1rem; 
+  border-radius: 5px;
+  border: 1px solid white;
+  background-color: rgb(103, 185, 103);
+  /* display: no  ne;   */
+}
+#ed {
+  background-color: rgb(223, 158, 78);
+}
+.b {
+  display: none;
+  background-color: rgb(220, 141, 141);
+}
+
+.posts {
+ background-color: rgb(73, 196, 230);;
+ margin: 1rem 1rem;
+ border:0.5rem solid rgb(166, 216, 238);
+ border-radius: 1rem;
+}
+
+.posts p  {
+  font-size: 1.5rem;
+  font-weight: bold ;
+}
+
+p{
+  color: white;
+}
+
+
+#co {
+  background-color: red;
+}
+
+
+#modal {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 300px;
+  padding: 2rem;
+  margin: 0 auto;
+  border: 2px solid #000;
+  background-color: #000;
+}
+
+#modal input {
+  font-size: 1.5rem;
+  padding: 0.2rem;
+}
+
+#modal button {
+  margin: 1rem 0;
+  font-size: 1.2rem;
+  padding: 0.5rem 1.5rem;
+}
+
+.add{
+  background-color: blue;
+}
+
+
