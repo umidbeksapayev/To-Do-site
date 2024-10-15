@@ -5,9 +5,7 @@ html{
 }
 
 body {
-  background-color: rgb(134, 232, 232);
   width: 100%;
-  display: flex;
   align-items: center;
   text-align: center;
 }
@@ -16,14 +14,21 @@ body {
   background-color:rgb(73, 196, 230); 
   margin: 100px 380px;
   width: 770px;
+  border-radius: 1rem;
 
+  height: 105vh;
+}
+
+.main {
+  max-height: 450px;
+  overflow-y: auto;
 }
 
 
 .conteiner h1{
   color: white;
   padding-top: 90px;
-
+  /* height: 30vh */
 }
 
 
@@ -33,6 +38,7 @@ body {
   border-radius: 5px;
   border: 1px solid white;  
   margin-bottom: 2rem;
+  margin-top: 1rem;
 }
 
 .btn,.btns button {
@@ -102,4 +108,105 @@ p{
   background-color: blue;
 }
 
+@media (max-width: 480px) {
+  .conteiner {
+    width: 95%;
+    margin: 10px;
+  }
+
+  .in {
+    width: 90%;
+  }
+
+  .btn, .btns button {
+    padding: 0.5rem 0.8rem;
+    font-size: 1rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    padding-top: 20px;
+  }
+
+  .posts p {
+    font-size: 1.2rem;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 769px) {
+  .conteiner {
+    width: 85%;
+    margin: 30px auto;
+  }
+
+  .in {
+    width: 80%;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+    padding-top: 30px;
+  }
+
+  .btn, .btns button {
+    padding: 0.6rem 1rem;
+    font-size: 1.1rem;
+  }
+
+  .posts p {
+    font-size: 1.3rem;
+  }
+}
+
+/* Styles for screens between 769px and 1279px (tablets, small laptops) */
+@media (min-width: 769px) and (max-width: 1279px) {
+  .conteiner {
+    width: 80%;
+    margin: 50px auto;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    padding-top: 60px;
+  }
+
+  .btn, .btns button {
+    padding: 0.7rem 1rem;
+    font-size: 1.1rem;
+  }
+
+  .in {
+    width: 80%;
+  }
+
+  .posts p {
+    font-size: 1.4rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .conteiner {
+    width: 70%;
+    max-width: 900px;
+    margin: 100px auto;
+  }
+
+  h1 {
+    font-size: 3rem;
+    padding-top: 80px;
+  }
+
+  .btn, .btns button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1.2rem;
+  }
+
+  .in {
+    width: 70%;
+  }
+
+  .posts p {
+    font-size: 1.6rem;
+  }
+}
 

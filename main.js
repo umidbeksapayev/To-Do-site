@@ -6,9 +6,29 @@ let save = document.getElementById("saveBtn");
 let cancel = document.getElementById("cancelBtn");
 let inp = document.getElementById("input");
 
+let goals = JSON.parse(localStorage.getItem("toDos")) || [];
+// id = 0;
 
-id = 0;
-let goals = [];
+const showToDO = ()=>{
+  if (goals.length){
+    for (i=0; i<goals.length; i++){
+      let div = document.createElement("div");
+      div.id = goals[i].id
+      div.innerHTML = `
+      <div class="posts">
+        <p style="${goals[i].complated ? "text-decoration:line-through":"text-decoration:none"}">${goals[i].title}</p>
+        <button class = "btn" id="co" onclick="deletee(${goals[i].id})">Delete</button>
+        <button class = "btn" id = "ed" onclick="modalToDo(${goals[i].id})">Edit</button>
+        <button class="com btn" onclick="com(${goals[i].id})">${goals[i].complated ? "UNCOMLATE":"COMPLATE"}</button>
+      </div>
+      `;
+
+      main.append(div);
+    }
+  }
+}
+
+showToDO()
 
 // Add new goal
 add = () => {
@@ -18,6 +38,7 @@ add = () => {
       title: input.value,
       complated: false,
     };
+    goals.push(goal);
 
     let div = document.createElement("div");
     div.id = goal.id;
@@ -32,9 +53,9 @@ add = () => {
 
     document.querySelector(".b").style.display = "inline-block";
     main.append(div);
-    goals.push(goal);
+    localStorage.setItem("toDos",JSON.stringify(goals))
     input.value = "";
-    id++;
+
     // h3.innerHTML = null;
   }
 };
@@ -44,10 +65,13 @@ const deletee = (id) => {
   for (i = 0; i < main.children.length; i++) {
     if (id == main.children[i].id) {
       main.children[i].remove();
-      break;
+      console.log(goals = goals.filter((goal)=>goal.id !== i));
+      
+      goals = goals.filter((goal) => goal.id !== i)
     }
   }
-
+  localStorage.setItem("toDos", JSON.stringify(goals));
+  
   if (main.children.length === 0) {
     document.querySelector(".b").style.display = "none";
   }
@@ -63,17 +87,20 @@ const deleteall = () => {
 const com = (id) => {
   for (i = 0; i < main.children.length; i++) {
     if (id == main.children[i].id) {
-      goals[i].complated = !goals[i].complated;
-
+      
       if (goals[i].complated) {
-        main.children[i].childNodes[1].style.textDecoration = "line-through";
-        main.children[i].getElementsByClassName("com")[0].innerText = "UNCOMPLETE";
-      } else {
-        main.children[i].childNodes[1].style.textDecoration = "none";
+        main.children[i].childNodes[1].children[0].style.textDecoration = "none";
         main.children[i].getElementsByClassName("com")[0].innerText = "COMPLETE";
+        goals[i].complated = false
+      } else {
+        main.children[i].childNodes[1].children[0].style.textDecoration = "line-through";
+        main.children[i].getElementsByClassName("com")[0].innerText = "UNCOMPLETE";
+        goals[i].complated = true
       }
     }
   }
+  localStorage.setItem("toDos",JSON.stringify(goals))
+  // goals[i].complated = goals[i].complated;
 };
 
 // Edit a goal using modal
